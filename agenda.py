@@ -4,7 +4,7 @@ menu = [
     "Novo contato", 
     "Lista de contatos",
     "Editar contato",
-    "Favoritar contato",
+    "Favoritar/Desfavoritar contato",
     "Listar favoritos",
     "Apagar contato"
 ]
@@ -25,11 +25,11 @@ def montar_menu():
 
     return input("Escolha uma opção: ")
 
-def input_fileds(titulo):
+def input_fields(titulo, old_nome="", old_telefone="", old_email=""):
     print(titulo)
-    nome = input("Nome:")
-    telefone = input("Telefone:")
-    email = input("E-mail:")
+    nome = input(f"Nome [{old_nome}]:")
+    telefone = input(f"Telefone [{old_telefone}]:")
+    email = input(f"E-mail [{old_email}]:")
     return nome, telefone, email
 
 
@@ -45,20 +45,26 @@ while True:
         print(e)
     else: 
         if escolha == 1:
-            input_fileds("Digite as informações do novo contato")
+            nome, telefone, email = input_fields("Digite as informações do novo contato")
             sucesso = contatos.adicionar_usuario(nome, telefone, email)
             if sucesso:
-                print("Contato incluído com sucesso.")
+                print("\nContato incluído com sucesso.")
             else:
-                print("Falha na inclusão do contato.")
+                print("\nFalha na inclusão do contato. O nome é obrigatório. Verifique as informações digitadas.")
         elif escolha == 2:
             contatos.listar_contatos()
         elif escolha == 3:
             contato_id = selecionar_contato("Digite o número do contato")
-            mensagem = contatos.editar_contato(contato_id)
+            old_nome, old_telefone, old_email = contatos.obter_contato_por_id(contato_id)
+            nome, telefone, email = input_fields("Digite as novas informações do novo contato", old_nome, old_telefone, old_email)
+            mensagem = contatos.editar_contato(contato_id, nome, telefone, email)
+            print(mensagem)
         elif escolha == 4:
             contato_id = selecionar_contato("Digite o número do contato")
             mensagem = contatos.favoritar(contato_id)
             print(mensagem)
+        elif escolha == 5:
+            contatos.listar_contatos(favoritos=True)
         elif escolha == 6:
+            print("\nPrograma finalizado!")
             quit()
