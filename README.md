@@ -1,3 +1,7 @@
+# Desafio 01
+Link: https://efficient-sloth-d85.notion.site/Desafio-01-622bb29769034c9ba659f2dc33019055#ac72d68b94f94627982db9f88583dd2b
+Desafio referente ao módulo: Introdução ao Python
+
 ## Introdução
 
 Faaala Dev,
@@ -26,13 +30,3 @@ Nesse desafio desenvolveremos uma agenda para salvar, editar, deletar e marcar u
 - Deve ser possível marcar/desmarcar um contato como favorito
 - Deve ser possível ver uma lista de contatos favoritos
 - Deve ser possível apagar um contato
-
-## Entrega
-
-Após concluir o desafio, você deve enviar a URL do seu código no GitHub para a plataforma. 
-
-Além disso, que tal fazer um post no LinkedIn compartilhando o seu aprendizado e contando como foi a experiência?
-
-É uma excelente forma de demonstrar seus conhecimentos e atrair novas oportunidades!
-
-Feito com 💜 por Rocketseat 👋
